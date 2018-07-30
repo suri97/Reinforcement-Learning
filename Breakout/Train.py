@@ -234,7 +234,7 @@ def predict_action(explore_start, explore_stop, decay_rate, decay_step, state, a
 
 
 # In[52]:
-
+rewards_list = []
 
 # Saver will help us to save our model
 saver = tf.train.Saver()
@@ -278,7 +278,7 @@ if training == True:
                 # If the game is finished
                 if done:
                     # The episode ends so no next state
-                    next_state = np.zeros((110,84), dtype=np.int)
+                    next_state = np.zeros((110,84,3), dtype=np.uint8)
                     
                     next_state, stacked_frames = stack_frames(stacked_frames, next_state, False)
 
